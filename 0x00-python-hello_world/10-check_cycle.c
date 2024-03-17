@@ -11,7 +11,7 @@ int check_cycle(listint_t *list)
 {
 	listint_t *slow, *fast;
 
-	if(!list)
+	if (!list)
 	{
 		return (0);
 	}
