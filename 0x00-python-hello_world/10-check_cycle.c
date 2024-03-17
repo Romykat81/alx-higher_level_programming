@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -11,20 +12,20 @@ int check_cycle(listint_t *list)
 {
 	listint_t *slow, *fast;
 
-	if (!list)
-	{
+	if (list == NULL || list->next == NULL)
 		return (0);
-	}
-	slow = list;
-	fast = list->next;
-	while (fast && slow && fast->next)
+
+	slow = list->next;
+	fast = list->next->next;
+
+	while (slow && fast && fast->next)
 	{
 		if (slow == fast)
-		{
 			return (1);
-		}
+
 		slow = slow->next;
-		fast = fast->next->next;
+		fast = fast->next->;
 	}
+
 	return (0);
 }
